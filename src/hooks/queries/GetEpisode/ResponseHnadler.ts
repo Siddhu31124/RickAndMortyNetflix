@@ -1,10 +1,10 @@
 import { EpisodeBeforeFormat } from "../../../types";
-import { formatData } from "../../../Factory/formateEpisodesData";
+import { formatEpisodeData } from "../../../Factory/formateEpisodesData";
 import SeriesStore from "../../../Store/SeriesStors";
 
 function useResponseHandler() {
   const setEpisodeData = (data: EpisodeBeforeFormat) => {
-    const formattedData = formatData(data);
+    const formattedData = formatEpisodeData(data);
     SeriesStore.setSelectedEpisode(formattedData);
   };
   return { setEpisodeData };
