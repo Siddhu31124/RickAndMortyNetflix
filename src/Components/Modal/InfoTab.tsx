@@ -27,9 +27,12 @@ const InfoTab = (prop: InfoTabProp) => {
       </div>
     );
   };
-
+  console.log(SeriesStore.selectedEpisode);
   const EpisodeInfo = () => {
-    if (SeriesStore.selectedEpisode && !loading) {
+    if (loading) {
+      return <Loader />;
+    }
+    if (SeriesStore.selectedEpisode) {
       return (
         <div className={infoContainer}>
           <h3 className={infoText}>Episode Info</h3>
@@ -48,7 +51,6 @@ const InfoTab = (prop: InfoTabProp) => {
         </div>
       );
     }
-    return <Loader />;
   };
 
   return (
