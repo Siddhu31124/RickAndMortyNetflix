@@ -61,7 +61,7 @@ const CharactersTab = (props: props) => {
         return <Loader />;
       }
       case charactersError !== undefined: {
-        return <p>Failed to Fetch data</p>;
+        return <p>{charactersError.message}</p>;
       }
       default: {
         return (

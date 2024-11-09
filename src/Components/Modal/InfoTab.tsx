@@ -23,9 +23,10 @@ const InfoTab = (prop: InfoTabProp) => {
 
   useEffect(() => {
     if (ModalStore.isModalOpen) {
+      console.log("Episode is Fetching");
       handleFetchEpisode();
     }
-  }, [ModalStore.isModalOpen, SeriesStore.selectedEpisode]);
+  }, [ModalStore.isModalOpen]);
 
   const closeButton = () => {
     return (
