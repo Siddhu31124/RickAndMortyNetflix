@@ -27,7 +27,6 @@ const InfoTab = (prop: InfoTabProp) => {
       </div>
     );
   };
-  console.log(SeriesStore.selectedEpisode);
   const EpisodeInfo = () => {
     if (loading) {
       return <Loader />;
