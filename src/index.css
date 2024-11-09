@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+.mainSection {
+    background: 
+        linear-gradient(to right,rgba(0, 0, 0, 0.811), rgba(255, 255, 255, 0)),
+        url('MainImage.jpg');
+    height: 90vh;
+    background-size:cover;
+    background-position:right;
+    margin-top:56px;
+}
+.episodes,.scroll{
+  scrollbar-color: rgb(58, 57, 57) transparent;
+  scrollbar-width: thin;
+  
+}
+.modal {
+    background-color: rgb(6, 6, 6);
+    border-radius: 6px;
+    border: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+    padding: 1rem;
+    width: 80%;
+    max-width: 40rem;
+    max-height:70%;
+    height:65%;
+    animation: fade-slide-up 0.3s ease-out forwards;
+    margin:auto;
+    transition: all 0.5 ease;
+  }
+  .modal::backdrop {
+    background-color: rgba(0, 0, 0, 0.55);
+  }
+  @keyframes fade-slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(4rem);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
