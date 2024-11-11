@@ -3,6 +3,7 @@ import { useEffect } from "react";
 
 import GET_CHARACTER_DETAILS from "./Query";
 import SeriesStore from "../../../Store/SeriesStors";
+import useResponseHandler from "./ResponseHandler";
 
 function useGetCharacterDetails() {
   const [fetchCharacterInfo, { data, loading, error }] = useLazyQuery(
@@ -11,6 +12,7 @@ function useGetCharacterDetails() {
       fetchPolicy: "cache-first",
     }
   );
+  const { setCharacterDetails } = useResponseHandler();
   const handelFetchCharacterInfo = () => {
     fetchCharacterInfo({
       variables: { characterId: SeriesStore.selectedCharacterId },
@@ -18,7 +20,7 @@ function useGetCharacterDetails() {
   };
   useEffect(() => {
     if (data) {
-      SeriesStore.setCharacter(data.character);
+      setCharacterDetails(data.character);
     }
   }, [data]);
   return { handelFetchCharacterInfo, loading, error };
