@@ -23,7 +23,6 @@ const InfoTab = (prop: InfoTabProp) => {
 
   useEffect(() => {
     if (ModalStore.isModalOpen) {
-      console.log("Episode is Fetching");
       handleFetchEpisode();
     }
   }, [ModalStore.isModalOpen]);
@@ -47,32 +46,30 @@ const InfoTab = (prop: InfoTabProp) => {
       }
       case SeriesStore.selectedEpisode !== null: {
         return (
-          <div className={infoContainer}>
-            <h3 className={infoText}>Episode Info</h3>
-            <p>
-              <span className={infoCommon}>Episode Name : </span>
-              {SeriesStore.selectedEpisode.name}
-            </p>
-            <p>
-              <span className={infoCommon}>Created On : </span>
-              {SeriesStore.selectedEpisode.created.slice(0, 10)}
-            </p>
-            <p>
-              <span className={infoCommon}>Air Date : </span>
-              {SeriesStore.selectedEpisode.airDate}
-            </p>
+          <div>
+            <div className={infoContainer}>
+              <h3 className={infoText}>Episode Info</h3>
+              <p>
+                <span className={infoCommon}>Episode Name : </span>
+                {SeriesStore.selectedEpisode.name}
+              </p>
+              <p>
+                <span className={infoCommon}>Created On : </span>
+                {SeriesStore.selectedEpisode.created.slice(0, 10)}
+              </p>
+              <p>
+                <span className={infoCommon}>Air Date : </span>
+                {SeriesStore.selectedEpisode.airDate}
+              </p>
+            </div>
+            {closeButton()}
           </div>
         );
       }
     }
   };
 
-  return (
-    <div>
-      {episodeInfo()}
-      {closeButton()}
-    </div>
-  );
+  return <div>{episodeInfo()}</div>;
 };
 
 export default observer(InfoTab);
